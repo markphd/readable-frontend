@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ScoreButton from './ScoreButton';
-import logo from './logo.svg';
-import './App.css';
+
+import api from './utils/api'
 
 class App extends Component {
   state = {

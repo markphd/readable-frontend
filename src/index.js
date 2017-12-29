@@ -1,8 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+import React from 'react'
+import ReactDOM from 'react-dom'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import ScoreCounterContainer from './containers/ScoreCounterContainer.js'
+import counter from './reducers/counter.js'
 
-ReactDOM.render(<App />, document.getElementById('root'));
-registerServiceWorker();
+const store = createStore(counter)
+const rootEL = document.getElementById('root')
+
+const render = () => ReactDOM.render(
+    <Provider store={store}>
+        <ScoreCounterContainer/>
+    </Provider>,
+    rootEL
+)
+
+render()
+store.subscribe(render)
